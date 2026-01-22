@@ -1,0 +1,433 @@
+@import "tailwindcss";
+
+/* ================================================
+   ROBOT FRIENDS DESIGN SYSTEM
+   "Technical enough to trust. Human enough to love."
+   ================================================ */
+
+@theme {
+  /* ================================================
+     PRIMITIVE TOKENS - Complete Scales
+     From Robot Friends Theme Exploration
+     ================================================ */
+
+  /* Navy Scale (Foundation) */
+  --color-navy-950: #0D1221;
+  --color-navy-900: #151D38;
+  --color-navy-800: #1E2A4A;
+  --color-navy-700: #2B3A67;
+  --color-navy-600: #3D4E7A;
+  --color-navy-500: #4F618D;
+  --color-navy-400: #6B7BA3;
+  --color-navy-300: #8E9ABB;
+  --color-navy-200: #B3BCD2;
+  --color-navy-100: #D9DEE9;
+  --color-navy-50: #ECEEF4;
+
+  /* Coral Scale (Energy) */
+  --color-coral-700: #D94545;
+  --color-coral-600: #E85555;
+  --color-coral-500: #FF6B6B;
+  --color-coral-400: #FF8A8A;
+  --color-coral-300: #FFADAD;
+  --color-coral-200: #FFD0D0;
+  --color-coral-100: #FFEDED;
+
+  /* Yellow Scale (Optimism) */
+  --color-yellow-700: #D4B82E;
+  --color-yellow-600: #E8CC42;
+  --color-yellow-500: #FFE66D;
+  --color-yellow-400: #FFEC8A;
+  --color-yellow-300: #FFF2A8;
+  --color-yellow-200: #FFF7C5;
+  --color-yellow-100: #FFFBE3;
+
+  /* Sage Scale (Growth) */
+  --color-sage-700: #5E8857;
+  --color-sage-600: #78A271;
+  --color-sage-500: #95BF8F;
+  --color-sage-400: #AFCFAA;
+  --color-sage-300: #C9DFC6;
+  --color-sage-200: #E4EFE2;
+  --color-sage-100: #F2F7F1;
+
+  /* Cream Scale (Canvas) */
+  --color-cream-100: #FFFFFF;
+  --color-cream-200: #FFFDF8;
+  --color-cream-300: #FFF9F0;
+  --color-cream-400: #F5EFE6;
+  --color-cream-500: #EBE5DC;
+  --color-cream-600: #D9D3CA;
+
+  /* Neutral Scale */
+  --color-neutral-900: #1A1A1A;
+  --color-neutral-800: #333333;
+  --color-neutral-700: #4D4D4D;
+  --color-neutral-600: #666666;
+  --color-neutral-500: #808080;
+  --color-neutral-400: #999999;
+  --color-neutral-300: #c4c4c4;
+  --color-neutral-100: #e8e8e8;
+  --color-neutral-50: #f5f5f5;
+
+  /* ================================================
+     SEMANTIC ALIASES (for backwards compatibility)
+     ================================================ */
+  --color-friendly-navy: #2B3A67;
+  --color-friendly-navy-dark: #1E2A4A;
+  --color-friendly-navy-light: #3D4E7A;
+  --color-friendly-navy-deep: #151D38;
+  --color-warm-coral: #FF6B6B;
+  --color-warm-coral-light: #FF8A8A;
+  --color-sunshine-yellow: #FFE66D;
+  --color-calm-sage: #95BF8F;
+  --color-soft-cream: #FFF9F0;
+  --color-soft-cream-light: #FFFDF8;
+
+  /* Font Families */
+  --font-fraunces: 'Fraunces', serif;
+  --font-general: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-icon: 22%;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  --shadow-card-hover: 0 4px 6px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.08);
+  --shadow-postit: 2px 2px 4px rgba(0,0,0,0.1), inset 0 -40px 40px -40px rgba(0,0,0,0.05);
+}
+
+/* ================================================
+   BASE STYLES
+   ================================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-general);
+  background: var(--color-soft-cream);
+  color: var(--color-neutral-900);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================================================
+   WORKSHOP GRID OVERLAY
+   The signature Robot Friends background texture
+   ================================================ */
+
+.workshop-grid {
+  position: relative;
+}
+
+.workshop-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(43, 58, 103, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43, 58, 103, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.workshop-grid-dark::before {
+  background-image:
+    linear-gradient(rgba(255, 230, 109, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 230, 109, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.workshop-grid-fine::before {
+  background-size: 16px 16px;
+}
+
+/* ================================================
+   TYPOGRAPHY
+   ================================================ */
+
+.font-fraunces {
+  font-family: var(--font-fraunces);
+}
+
+.font-general {
+  font-family: var(--font-general);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Headlines */
+h1, .h1 {
+  font-family: var(--font-fraunces);
+  font-size: clamp(2.5rem, 6vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+h2, .h2 {
+  font-family: var(--font-fraunces);
+  font-size: clamp(1.75rem, 4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+h3, .h3 {
+  font-family: var(--font-fraunces);
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* ================================================
+   GRADIENTS
+   ================================================ */
+
+.bg-light-gradient {
+  background: linear-gradient(135deg, #FFF9F0 0%, #FFFDF8 50%, #ffffff 100%);
+}
+
+.bg-dark-gradient {
+  background: linear-gradient(135deg, #2B3A67 0%, #1E2A4A 50%, #151D38 100%);
+}
+
+.bg-coral-gradient {
+  background: linear-gradient(135deg, #FF6B6B 0%, #e85a5a 100%);
+}
+
+/* ================================================
+   TACTILE ELEMENTS - Post-its, Tape, Paper
+   "Building at a kitchen table, not a sterile office"
+   ================================================ */
+
+/* Post-it Notes */
+.postit {
+  background: var(--color-sunshine-yellow);
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: var(--shadow-postit);
+  border-radius: 2px;
+}
+
+.postit::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.03) 50%);
+}
+
+.postit-coral {
+  background: var(--color-warm-coral);
+  color: white;
+}
+
+.postit-cream {
+  background: #fffef0;
+}
+
+/* Rotation utilities for hand-placed feel */
+.rotate-slight-left { transform: rotate(-2deg); }
+.rotate-slight-right { transform: rotate(2deg); }
+.rotate-tilt-left { transform: rotate(-3deg); }
+.rotate-tilt-right { transform: rotate(3deg); }
+
+/* Tape Strips */
+.tape {
+  position: absolute;
+  width: 80px;
+  height: 24px;
+  background: rgba(255, 230, 109, 0.7);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.tape-coral {
+  background: rgba(255, 107, 107, 0.6);
+}
+
+.tape-sage {
+  background: rgba(149, 191, 143, 0.6);
+}
+
+.tape-top-center {
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+}
+
+.tape-top-right {
+  top: -8px;
+  right: 20px;
+  transform: rotate(35deg);
+}
+
+/* Paper Texture */
+.paper-texture {
+  position: relative;
+}
+
+.paper-texture::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Construction Paper Cards */
+.paper-card {
+  border-radius: 2px;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+}
+
+/* Push Pin */
+.push-pin {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: var(--color-warm-coral);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.push-pin::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 50%;
+}
+
+/* ================================================
+   THEME MODE VARIABLES
+   The 3% Rule: Accent swap, not inversion
+   Light: Coral primary | Dark: Yellow primary
+   ================================================ */
+
+:root {
+  /* Light Mode (default) - "Notebook waiting for ideas" */
+  --theme-bg-primary: var(--color-cream-300);
+  --theme-bg-secondary: var(--color-cream-100);
+  --theme-bg-card: var(--color-cream-100);
+  --theme-text-primary: var(--color-navy-700);
+  --theme-text-secondary: var(--color-neutral-700);
+  --theme-text-muted: var(--color-neutral-500);
+  --theme-border: var(--color-navy-100);
+  --theme-border-subtle: var(--color-navy-200);
+  --theme-accent-primary: var(--color-coral-500);
+  --theme-accent-hover: var(--color-coral-600);
+  --theme-grid-color: rgba(43, 58, 103, 0.03);
+  --theme-shadow: 0 4px 12px rgba(43, 58, 103, 0.08);
+  --theme-transition: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  /* Dark Mode - "Late night in the workshop" */
+  --theme-bg-primary: var(--color-navy-900);
+  --theme-bg-secondary: var(--color-navy-800);
+  --theme-bg-card: var(--color-navy-800);
+  --theme-text-primary: var(--color-cream-100);
+  --theme-text-secondary: rgba(255, 255, 255, 0.7);
+  --theme-text-muted: var(--color-navy-400);
+  --theme-border: rgba(61, 78, 122, 0.5);
+  --theme-border-subtle: var(--color-navy-600);
+  --theme-accent-primary: var(--color-yellow-500);
+  --theme-accent-hover: var(--color-yellow-600);
+  --theme-grid-color: rgba(255, 230, 109, 0.04);
+  --theme-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] body {
+  background: var(--theme-bg-primary);
+  color: var(--theme-text-primary);
+}
+
+[data-theme="dark"] .workshop-grid::before {
+  background-image:
+    linear-gradient(var(--theme-grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--theme-grid-color) 1px, transparent 1px);
+}
+
+/* Theme transitions - smooth like sunrise/sunset */
+.theme-transition {
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition),
+    box-shadow var(--theme-transition);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-transition {
+    transition: none;
+  }
+}
+
+/* ================================================
+   ANIMATIONS
+   ================================================ */
+
+@keyframes tape-wiggle {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(-3deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ================================================
+   UTILITY CLASSES
+   ================================================ */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .content-wrapper {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
