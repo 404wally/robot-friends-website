@@ -205,10 +205,10 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { num: '01', title: 'Strategy Call', desc: 'We map your current chaos. What's falling through the cracks? What's eating your time?' },
+              { num: '01', title: 'Strategy Call', desc: "We map your current chaos. What's falling through the cracks? What's eating your time?" },
               { num: '02', title: 'System Design', desc: 'We blueprint your automation. You approve before we build.' },
               { num: '03', title: 'Build & Launch', desc: 'We build it with you (not just for you). You understand how it works.' },
-              { num: '04', title: 'Handoff & Support', desc: 'You own it. We're here when you need us.' },
+              { num: '04', title: 'Handoff & Support', desc: "You own it. We're here when you need us." },
             ].map((step, i) => {
               const variation = methodologyVariations[i]
               return (
