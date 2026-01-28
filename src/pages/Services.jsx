@@ -10,55 +10,55 @@ export default function Services() {
   const { isDark } = useTheme()
   const services = [
     {
-      name: 'Workshop',
+      name: 'Quick Win Sprint',
       price: '$1,500 - $3,500',
-      description: 'Half/full day hands-on AI session. Leave with 3 opportunities identified and 1 quick win built.',
+      description: 'One system, one week. Pick your biggest pain point — we fix it.',
       features: [
-        'Half or full day session',
-        '3 opportunities identified',
-        '1 quick win built on the spot',
-        'Immediate, tangible results',
+        'Single focused automation',
+        'One week turnaround',
+        'You pick the problem',
+        'Immediate relief',
       ],
-      cta: 'The lowest-risk way to experience the transformation',
+      cta: 'The fastest way to see what\'s possible',
       color: 'yellow',
     },
     {
-      name: 'Guided Build',
+      name: 'Full System Build',
       price: '$8,000 - $25,000',
-      description: '6-8 weeks of coaching. You build your first production system WITH us.',
+      description: 'Complete automation package. Lead capture → follow-up → operations. 6-8 weeks.',
       features: [
-        '6-8 weeks of coaching',
-        'Weekly calls + async support',
-        'Build a production system',
-        'Graduate with skills to evolve it',
+        'End-to-end system',
+        '6-8 week build',
+        'Built with you, not just for you',
+        'Full training included',
       ],
-      cta: 'Graduate with a working system and the skills to evolve it',
+      cta: 'From chaos to clockwork in under two months',
       color: 'coral',
     },
     {
-      name: 'Advisory',
+      name: 'Ongoing Support',
       price: '$2,000 - $5,000/mo',
-      description: 'Ongoing coaching retainer. Monthly strategy + async access + architecture reviews.',
+      description: 'Monthly optimization + new builds as your business evolves.',
       features: [
-        'Monthly strategy sessions',
-        'Async access for questions',
-        'Architecture reviews',
-        'Ongoing guidance',
+        'Monthly strategy calls',
+        'System tweaks and improvements',
+        'New automations as needed',
+        'Priority support',
       ],
       cta: 'A robot friend on speed dial',
       color: 'sage',
     },
     {
-      name: 'Team Program',
+      name: 'Team Rollout',
       price: '$25,000 - $75,000',
-      description: '3-6 month transformation for 5-15 people. Custom curriculum + multiple builds.',
+      description: 'Multi-location or multi-department. Custom systems + training for your whole team.',
       features: [
-        '3-6 month transformation',
-        '5-15 people trained',
-        'Custom curriculum',
-        'Internal champions developed',
+        'Enterprise-scale systems',
+        'Team training included',
+        'Custom workflows per role',
+        'Rollout support',
       ],
-      cta: "Transform your entire team's capability",
+      cta: 'Scale your operations without scaling your headcount',
       color: 'navy',
     },
   ]
@@ -73,13 +73,13 @@ export default function Services() {
             className="mb-6 max-w-2xl"
             style={{ color: isDark ? '#FFFFFF' : '#2B3A67' }}
           >
-            How We Work
+            What We Build
           </h1>
           <p
             className="text-xl max-w-xl"
             style={{ color: isDark ? 'rgba(255,255,255,0.7)' : '#666666' }}
           >
-            From first spark to full independence.
+            Systems that give you your time back.
           </p>
         </div>
       </section>
@@ -140,11 +140,14 @@ export default function Services() {
           <div className="mt-16 text-center">
             <Card variant="postit" color="yellow" rotation={-1} className="inline-block p-8">
               <p className="text-[#2B3A67] font-medium mb-4">
-                Not sure where to start?
+                Not sure what you need?
               </p>
               <Button to="/contact">
-                Book a Workshop <Emoticon size="sm" color={isDark ? 'navy' : 'white'} />
+                Book a Strategy Call <Emoticon size="sm" color={isDark ? 'navy' : 'white'} />
               </Button>
+              <p className="text-[#2B3A67]/60 text-sm mt-3">
+                We'll figure it out together.
+              </p>
             </Card>
           </div>
         </div>
