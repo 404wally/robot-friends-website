@@ -9,7 +9,7 @@
  * SPEC: Dark mode section titles (h2) use #FFE66D yellow
  */
 
-import { Button, Card, SectionLabel, Emoticon } from '../components/ui'
+import { Button, Card, SectionLabel, Emoticon, NewsletterForm } from '../components/ui'
 import { GRID_VARIATIONS } from '../utils/tactile'
 import { useTheme } from '../hooks/useTheme'
 
@@ -307,10 +307,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section - White in light, Surface (#1E2A4A) in dark */}
+      {/* Newsletter Section - White in light, Surface (#1E2A4A) in dark */}
       <section
         className="py-20 md:py-28"
         style={{ background: isDark ? '#1E2A4A' : '#FFFFFF' }}
+      >
+        <div className="content-wrapper">
+          <div className="max-w-2xl mx-auto text-center">
+            <SectionLabel className="mb-4">Stay in the Loop</SectionLabel>
+            <h2
+              className="mb-4"
+              style={{ color: isDark ? '#FFE66D' : '#2B3A67' }}
+            >
+              Get automation tips that actually work
+            </h2>
+            <p
+              className="text-lg mb-8"
+              style={{ color: isDark ? 'rgba(255,255,255,0.7)' : '#666666' }}
+            >
+              No fluff. Just practical systems for busy business owners. Unsubscribe anytime.
+            </p>
+            <NewsletterForm />
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section - Cream in light (#FFF9F0), Alt (#151D38) in dark */}
+      <section
+        className="py-20 md:py-28"
+        style={{ background: isDark ? '#151D38' : '#FFF9F0' }}
       >
         <div className="content-wrapper">
           <div className="max-w-2xl mx-auto text-center">

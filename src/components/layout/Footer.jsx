@@ -11,7 +11,7 @@
 
 import { Link } from 'react-router-dom'
 import { useTheme } from '../../hooks/useTheme'
-import { Emoticon } from '../ui'
+import { Emoticon, NewsletterForm } from '../ui'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -72,12 +72,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Newsletter */}
           <div>
-            <h4 className="font-semibold mb-4 text-white">Get in Touch</h4>
+            <NewsletterForm variant="compact" />
             <a
               href="mailto:contact@robobffs.com"
-              className="text-sm transition-colors text-white/60 hover:text-white"
+              className="text-sm transition-colors text-white/60 hover:text-white block mt-4"
             >
               contact@robobffs.com
             </a>
