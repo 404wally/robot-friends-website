@@ -35,7 +35,7 @@ export default function Home() {
               style={{ color: isDark ? 'rgba(255,255,255,0.7)' : '#666666' }}
             >
               We build the systems that make your business run itself.<br />
-              Custom automation. Clockwork results.
+              Less chaos. More freedom.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -343,7 +343,7 @@ export default function Home() {
               className="mb-4"
               style={{ color: isDark ? '#FFE66D' : '#2B3A67' }}
             >
-              Ready to run like clockwork?
+              Ready to reclaim your time?
             </h2>
             <p
               className="text-xl mb-8"
