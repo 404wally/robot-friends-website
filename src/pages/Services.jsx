@@ -8,7 +8,8 @@ import { useTheme } from '../hooks/useTheme'
 
 export default function Services() {
   const { isDark } = useTheme()
-  const services = [
+
+  const packages = [
     {
       name: 'Quick Win Sprint',
       price: '$1,500 - $3,500',
@@ -63,6 +64,18 @@ export default function Services() {
     },
   ]
 
+  const alaCarteServices = [
+    { name: 'Lead capture form setup', price: 'from $500' },
+    { name: 'Email automation sequence', price: 'from $750' },
+    { name: 'CRM setup & configuration', price: 'from $1,000' },
+    { name: 'Scheduling/calendar integration', price: 'from $500' },
+    { name: 'Invoice & payment automation', price: 'from $750' },
+    { name: 'Client onboarding workflow', price: 'from $1,000' },
+    { name: 'Custom workflow automation', price: 'from $1,500' },
+    { name: 'Data migration & cleanup', price: 'from $1,000' },
+    { name: 'Training session (2 hours)', price: '$500' },
+  ]
+
   return (
     <div>
       {/* Hero - Canvas gradient */}
@@ -84,17 +97,32 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Services Grid - White in light, Surface in dark */}
+      {/* Packages Grid - White in light, Surface in dark */}
       <section
-        className="pb-20 md:pb-28"
+        className="pb-16 md:pb-20"
         style={{ background: isDark ? '#1E2A4A' : '#FFFFFF' }}
       >
         <div className="content-wrapper">
+          <div className="flex items-center justify-between mb-8">
+            <h2
+              className="text-2xl"
+              style={{ color: isDark ? '#FFE66D' : '#2B3A67' }}
+            >
+              Packages
+            </h2>
+            <p
+              className="text-sm"
+              style={{ color: isDark ? 'rgba(255,255,255,0.5)' : '#808080' }}
+            >
+              All pricing is a starting estimate — every project is custom quoted.
+            </p>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-8">
-            {services.map((service, i) => (
+            {packages.map((service, i) => (
               <Card key={i} className="p-8 hover-lift" withGrid>
                 <div className="flex justify-between items-start mb-4">
-                  <h2 style={{ color: isDark ? '#FFFFFF' : '#2B3A67' }}>{service.name}</h2>
+                  <h3 style={{ color: isDark ? '#FFFFFF' : '#2B3A67' }}>{service.name}</h3>
                   <span
                     className="font-mono text-sm"
                     style={{ color: isDark ? '#FFE66D' : '#FF6B6B' }}
@@ -135,9 +163,66 @@ export default function Services() {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* CTA */}
-          <div className="mt-16 text-center">
+      {/* A La Carte Section - Cream in light, Alt in dark */}
+      <section
+        className="py-16 md:py-20"
+        style={{ background: isDark ? '#151D38' : '#FFF9F0' }}
+      >
+        <div className="content-wrapper">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2
+                className="text-2xl mb-2"
+                style={{ color: isDark ? '#FFE66D' : '#2B3A67' }}
+              >
+                A La Carte
+              </h2>
+              <p
+                className="text-sm"
+                style={{ color: isDark ? 'rgba(255,255,255,0.5)' : '#808080' }}
+              >
+                Need something specific? Pick what you need.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {alaCarteServices.map((service, i) => (
+              <Card key={i} className="p-5 hover-lift">
+                <div className="flex justify-between items-center">
+                  <span style={{ color: isDark ? '#FFFFFF' : '#2B3A67' }}>
+                    {service.name}
+                  </span>
+                  <span
+                    className="font-mono text-sm ml-4 flex-shrink-0"
+                    style={{ color: isDark ? '#FFE66D' : '#FF6B6B' }}
+                  >
+                    {service.price}
+                  </span>
+                </div>
+              </Card>
+            ))}
+          </div>
+
+          <p
+            className="text-center text-sm mt-8"
+            style={{ color: isDark ? 'rgba(255,255,255,0.5)' : '#808080' }}
+          >
+            All services are bespoke. We'll scope your specific needs and provide a custom quote.
+          </p>
+        </div>
+      </section>
+
+      {/* CTA - White in light, Surface in dark */}
+      <section
+        className="py-16 md:py-20"
+        style={{ background: isDark ? '#1E2A4A' : '#FFFFFF' }}
+      >
+        <div className="content-wrapper">
+          <div className="text-center">
             <Card variant="postit" color="yellow" rotation={-1} className="inline-block p-8">
               <p className="text-[#2B3A67] font-medium mb-4">
                 Not sure what you need?

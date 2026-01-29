@@ -17,6 +17,10 @@ export default function Contact() {
     name: '',
     email: '',
     company: '',
+    interest: '',
+    teamSize: '',
+    timeline: '',
+    referralSource: '',
     message: '',
   })
   const [status, setStatus] = useState('idle') // idle, submitting, success, error
@@ -35,7 +39,7 @@ export default function Contact() {
     // For now, we'll use a mailto fallback
     // In production, connect to Formspree or similar
     const mailtoLink = `mailto:contact@robobffs.com?subject=New inquiry from ${formData.name}&body=${encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\n\nMessage:\n${formData.message}`
+      `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nInterest: ${formData.interest}\nTeam Size: ${formData.teamSize}\nTimeline: ${formData.timeline}\nHow they found us: ${formData.referralSource}\n\nMessage:\n${formData.message}`
     )}`
 
     window.location.href = mailtoLink
@@ -61,6 +65,20 @@ export default function Contact() {
     }
   }
 
+  const getSelectStyle = () => {
+    const base = getInputStyle()
+    return {
+      ...base,
+      appearance: 'none',
+      backgroundImage: isDark
+        ? `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23FFFFFF' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`
+        : `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232B3A67' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'right 1rem center',
+      paddingRight: '2.5rem',
+    }
+  }
+
   return (
     <div>
       {/* Hero - Canvas gradient */}
@@ -77,7 +95,7 @@ export default function Contact() {
             className="text-xl max-w-xl"
             style={{ color: isDark ? 'rgba(255,255,255,0.7)' : '#666666' }}
           >
-            Hey there! Tell us what you're working on. <Emoticon />
+            Tell us what you're working on. We'll figure out the rest together. <Emoticon />
           </p>
         </div>
       </section>
@@ -91,7 +109,8 @@ export default function Contact() {
           <div className="grid md:grid-cols-2 gap-12 max-w-4xl">
             {/* Form */}
             <Card className="p-8" withGrid>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Name */}
                 <div>
                   <label
                     htmlFor="name"
@@ -113,6 +132,7 @@ export default function Contact() {
                   />
                 </div>
 
+                {/* Email */}
                 <div>
                   <label
                     htmlFor="email"
@@ -134,6 +154,7 @@ export default function Contact() {
                   />
                 </div>
 
+                {/* Company */}
                 <div>
                   <label
                     htmlFor="company"
@@ -154,24 +175,129 @@ export default function Contact() {
                   />
                 </div>
 
+                {/* Interest - Dropdown */}
+                <div>
+                  <label
+                    htmlFor="interest"
+                    className="block text-sm font-medium mb-2"
+                    style={{ color: isDark ? '#FFFFFF' : '#2B3A67' }}
+                  >
+                    What are you interested in?
+                  </label>
+                  <select
+                    id="interest"
+                    name="interest"
+                    value={formData.interest}
+                    onChange={handleChange}
+                    className={inputBaseStyles}
+                    style={getSelectStyle()}
+                  >
+                    <option value="">Select an option</option>
+                    <option value="Quick Win Sprint">Quick Win Sprint ($1.5k - $3.5k)</option>
+                    <option value="Full System Build">Full System Build ($8k - $25k)</option>
+                    <option value="Ongoing Support">Ongoing Support ($2k - $5k/mo)</option>
+                    <option value="Team Rollout">Team Rollout ($25k - $75k)</option>
+                    <option value="A la carte service">A la carte service</option>
+                    <option value="Not sure yet">Not sure yet</option>
+                  </select>
+                </div>
+
+                {/* Team Size - Dropdown */}
+                <div>
+                  <label
+                    htmlFor="teamSize"
+                    className="block text-sm font-medium mb-2"
+                    style={{ color: isDark ? '#FFFFFF' : '#2B3A67' }}
+                  >
+                    Team size
+                  </label>
+                  <select
+                    id="teamSize"
+                    name="teamSize"
+                    value={formData.teamSize}
+                    onChange={handleChange}
+                    className={inputBaseStyles}
+                    style={getSelectStyle()}
+                  >
+                    <option value="">Select an option</option>
+                    <option value="Just me">Just me</option>
+                    <option value="2-5 people">2-5 people</option>
+                    <option value="6-15 people">6-15 people</option>
+                    <option value="16-50 people">16-50 people</option>
+                    <option value="50+ people">50+ people</option>
+                  </select>
+                </div>
+
+                {/* Timeline - Dropdown */}
+                <div>
+                  <label
+                    htmlFor="timeline"
+                    className="block text-sm font-medium mb-2"
+                    style={{ color: isDark ? '#FFFFFF' : '#2B3A67' }}
+                  >
+                    Timeline
+                  </label>
+                  <select
+                    id="timeline"
+                    name="timeline"
+                    value={formData.timeline}
+                    onChange={handleChange}
+                    className={inputBaseStyles}
+                    style={getSelectStyle()}
+                  >
+                    <option value="">Select an option</option>
+                    <option value="ASAP">ASAP</option>
+                    <option value="1-3 months">1-3 months</option>
+                    <option value="3-6 months">3-6 months</option>
+                    <option value="Just exploring">Just exploring</option>
+                  </select>
+                </div>
+
+                {/* How did you hear about us - Dropdown */}
+                <div>
+                  <label
+                    htmlFor="referralSource"
+                    className="block text-sm font-medium mb-2"
+                    style={{ color: isDark ? '#FFFFFF' : '#2B3A67' }}
+                  >
+                    How did you hear about us?
+                  </label>
+                  <select
+                    id="referralSource"
+                    name="referralSource"
+                    value={formData.referralSource}
+                    onChange={handleChange}
+                    className={inputBaseStyles}
+                    style={getSelectStyle()}
+                  >
+                    <option value="">Select an option</option>
+                    <option value="Referral">Referral</option>
+                    <option value="LinkedIn">LinkedIn</option>
+                    <option value="Google search">Google search</option>
+                    <option value="Social media">Social media</option>
+                    <option value="Podcast">Podcast</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                {/* Message - Free text */}
                 <div>
                   <label
                     htmlFor="message"
                     className="block text-sm font-medium mb-2"
                     style={{ color: isDark ? '#FFFFFF' : '#2B3A67' }}
                   >
-                    What are you hoping to build? <span style={{ color: isDark ? '#FFE66D' : '#FF6B6B' }}>*</span>
+                    Anything else you'd like to share?
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    required
-                    rows={5}
+                    rows={4}
                     value={formData.message}
                     onChange={handleChange}
                     className={`${inputBaseStyles} resize-none`}
                     style={getInputStyle()}
-                    placeholder="Tell us about your goals, challenges, or what you're excited about..."
+                    placeholder="Tell us about your goals, challenges, or questions..."
                   />
                 </div>
 
