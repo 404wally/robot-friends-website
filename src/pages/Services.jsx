@@ -143,7 +143,7 @@ export default function Services() {
                 Not sure what you need?
               </p>
               <Button to="/contact">
-                Book a Strategy Call <Emoticon size="sm" color={isDark ? 'navy' : 'white'} />
+                Book a Free Consult <Emoticon size="sm" color={isDark ? 'navy' : 'white'} />
               </Button>
               <p className="text-[#2B3A67]/60 text-sm mt-3">
                 We'll figure it out together.

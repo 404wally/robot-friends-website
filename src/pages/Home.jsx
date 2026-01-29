@@ -40,7 +40,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button to="/contact" size="lg">
-                Book a Strategy Call
+                Book a Free Consult
               </Button>
               <Button to="/services" variant="secondary" size="lg">
                 See How It Works
@@ -349,10 +349,10 @@ export default function Home() {
               className="text-xl mb-8"
               style={{ color: isDark ? 'rgba(255,255,255,0.7)' : '#666666' }}
             >
-              Book a free strategy call. We'll map your chaos and show you what's possible.
+              Book a free consult. We'll map your chaos and show you what's possible.
             </p>
             <Button to="/contact" size="lg">
-              Book a Strategy Call <Emoticon size="sm" color={isDark ? 'navy' : 'white'} />
+              Book a Free Consult <Emoticon size="sm" color={isDark ? 'navy' : 'white'} />
             </Button>
           </div>
         </div>
