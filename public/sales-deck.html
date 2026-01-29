@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Friends — Sales Deck</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700;800&family=General+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Robot Friends Brand Palette */
+            --friendly-navy: #2B3A67;
+            --navy-dark: #1E2A4A;
+            --navy-light: #3D4E7A;
+            --warm-coral: #FF6B6B;
+            --coral-dark: #E85555;
+            --sunshine-yellow: #FFE66D;
+            --soft-cream: #FFF9F0;
+            --calm-sage: #95BF8F;
+
+            /* Grid overlays */
+            --grid-navy: rgba(43, 58, 103, 0.03);
+            --grid-yellow: rgba(255, 230, 109, 0.04);
+            --grid-white: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'General Sans', -apple-system, sans-serif;
+            background: #d0d0d0;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 24px;
+            color: var(--friendly-navy);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .slide-container {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .slide-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        /* Base Slide - 16:9 at 960x540 */
+        .slide {
+            width: 960px;
+            height: 540px;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 16px 64px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        /* ==========================================
+           SLIDE TYPE 1: TITLE (Navy Background)
+           ========================================== */
+        .slide-title {
+            background: linear-gradient(135deg, var(--friendly-navy) 0%, var(--navy-dark) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px;
+        }
+
+        .slide-title::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--grid-yellow) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-yellow) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        .slide-title .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--warm-coral);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide-title .wordmark {
+            font-family: 'Fraunces', serif;
+            font-size: 56px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 16px;
+        }
+
+        .slide-title .wordmark .emoticon {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            color: var(--warm-coral);
+        }
+
+        .slide-title .tagline {
+            font-size: 24px;
+            color: rgba(255,255,255,0.6);
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ==========================================
+           SLIDE TYPE 2: SECTION (Coral Background)
+           ========================================== */
+        .slide-section {
+            background: var(--warm-coral);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px;
+        }
+
+        .slide-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--grid-white) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-white) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+
+        .slide-section .section-number {
+            font-family: 'Fraunces', serif;
+            font-size: 120px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.15);
+            position: absolute;
+            top: 30px;
+            left: 50px;
+        }
+
+        .slide-section h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 52px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.2;
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+
+        /* ==========================================
+           SLIDE TYPE 3: CONTENT (Cream Background)
+           ========================================== */
+        .slide-content {
+            background: var(--soft-cream);
+            padding: 50px 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-content::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--grid-navy) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-navy) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .slide-content .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide-content h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--friendly-navy);
+        }
+
+        .slide-content .mini-logo {
+            font-family: 'Fraunces', serif;
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--friendly-navy);
+            opacity: 0.3;
+        }
+
+        .slide-content .mini-logo .emoticon {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            color: var(--warm-coral);
+        }
+
+        .slide-content .body {
+            flex-grow: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide-content ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .slide-content li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            font-size: 22px;
+            color: var(--friendly-navy);
+            line-height: 1.4;
+        }
+
+        .slide-content li::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: var(--warm-coral);
+            border-radius: 50%;
+            margin-top: 10px;
+            flex-shrink: 0;
+        }
+
+        .slide-content li strong {
+            color: var(--friendly-navy);
+        }
+
+        .slide-content li .highlight {
+            color: var(--warm-coral);
+            font-weight: 600;
+        }
+
+        /* Two column layout */
+        .slide-content .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .slide-content .two-columns .column ul {
+            gap: 24px;
+        }
+
+        /* Four column layout for services */
+        .slide-content .four-columns {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .slide-content .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 16px rgba(43, 58, 103, 0.08);
+        }
+
+        .slide-content .service-card h4 {
+            font-family: 'Fraunces', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--friendly-navy);
+            margin-bottom: 8px;
+        }
+
+        .slide-content .service-card .price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--warm-coral);
+            margin-bottom: 12px;
+        }
+
+        .slide-content .service-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Steps layout */
+        .slide-content .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .slide-content .step {
+            text-align: center;
+        }
+
+        .slide-content .step-number {
+            font-family: 'Fraunces', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--warm-coral);
+            margin-bottom: 12px;
+        }
+
+        .slide-content .step-title {
+            font-family: 'Fraunces', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--friendly-navy);
+            margin-bottom: 8px;
+        }
+
+        .slide-content .step-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* ==========================================
+           SLIDE TYPE 4: QUOTE (Yellow Background)
+           ========================================== */
+        .slide-quote {
+            background: var(--sunshine-yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            text-align: center;
+        }
+
+        .slide-quote .quote-mark {
+            font-family: 'Fraunces', serif;
+            font-size: 200px;
+            color: var(--friendly-navy);
+            opacity: 0.1;
+            position: absolute;
+            top: 20px;
+            left: 60px;
+            line-height: 1;
+        }
+
+        .slide-quote blockquote {
+            font-family: 'Fraunces', serif;
+            font-size: 44px;
+            font-weight: 700;
+            color: var(--friendly-navy);
+            line-height: 1.3;
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide-quote .attribution {
+            font-family: 'General Sans', sans-serif;
+            font-size: 18px;
+            color: var(--friendly-navy);
+            opacity: 0.6;
+            margin-top: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ==========================================
+           SLIDE TYPE 5: STATS (Navy Background)
+           ========================================== */
+        .slide-stats {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--friendly-navy) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+        }
+
+        .slide-stats::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--grid-yellow) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-yellow) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .slide-stats .stats-title {
+            font-family: 'Fraunces', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide-stats .stats-row {
+            display: flex;
+            gap: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide-stats .stat-item {
+            text-align: center;
+        }
+
+        .slide-stats .stat-number {
+            font-family: 'Fraunces', serif;
+            font-size: 96px;
+            font-weight: 700;
+            color: var(--sunshine-yellow);
+            line-height: 1;
+        }
+
+        .slide-stats .stat-number.large {
+            font-size: 120px;
+        }
+
+        .slide-stats .stat-label {
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+            margin-top: 12px;
+        }
+
+        .slide-stats .stat-sublabel {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 4px;
+        }
+
+        /* ==========================================
+           SLIDE TYPE 6: CLOSING (Sage Background)
+           ========================================== */
+        .slide-closing {
+            background: var(--calm-sage);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px;
+        }
+
+        .slide-closing .logo-icon {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--friendly-navy);
+            margin-bottom: 32px;
+        }
+
+        .slide-closing h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--friendly-navy);
+            margin-bottom: 16px;
+        }
+
+        .slide-closing h2 .emoticon {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            color: var(--warm-coral);
+        }
+
+        .slide-closing .cta-text {
+            font-size: 20px;
+            color: var(--friendly-navy);
+            opacity: 0.8;
+            margin-bottom: 32px;
+        }
+
+        .slide-closing .website {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--friendly-navy);
+            padding: 16px 32px;
+            background: white;
+            border-radius: 12px;
+        }
+
+        /* Print styles for PDF export */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .slide-container {
+                page-break-after: always;
+                margin: 0;
+            }
+
+            .slide-label {
+                display: none;
+            }
+
+            .slide {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            h1 {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Robot Friends Sales Deck — 13 Slides</h1>
+
+    <!-- SLIDE 1: Title -->
+    <div class="slide-container">
+        <div class="slide-label">Slide 1 — Title</div>
+        <div class="slide slide-title">
+            <div class="logo-icon">:)</div>
+            <div class="wordmark">robot friends <span class="emoticon">:)</span></div>
+            <div class="tagline">That's what friends are for</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: Section - The Problem -->
+    <div class="slide-container">
+        <div class="slide-label">Slide 2 — Section Divider</div>
+        <div class="slide slide-section">
+            <span class="section-number">01</span>
+            <h2>The Admin is Killing You</h2>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: Content - Pain Points -->
+    <div class="slide-container">
+        <div class="slide-label">Slide 3 — Content</div>
+        <div class="slide slide-content">
+            <div class="header">
+                <h3>The Chaos</h3>
+                <div class="mini-logo">robot friends <span class="emoticon">:)</span></div>
+            </div>
+            <div class="body">
+                <ul>
+                    <li>Leads slip through because <span class="highlight">no one followed up</span></li>
+                    <li>Hours lost to scheduling, invoicing, chasing payments</li>
+                    <li>Your <span class="highlight">$200/hr expertise</span> stuck doing $20/hr admin work</li>
+                    <li>Every new hire means weeks of training on tribal knowledge</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: Section - Transformation -->
+    <div class="slide-container">
+        <div class="slide-label">Slide 4 — Section Divider</div>
+        <div class="slide slide-section">
+            <span class="section-number">02</span>
+            <h2>From Chaos to Clockwork</h2>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: Content - Who We Help -->
+    <div class="slide-container">
+        <div class="slide-label">Slide 5 — Content</div>
+        <div class="slide slide-content">
+            <div class="header">
+                <h3>Who We Help</h3>
+                <div class="mini-logo">robot friends <span class="emoticon">:)</span></div>
+            </div>
+            <div class="body">
+                <ul>
+                    <li><strong>Founders, ops leaders, department heads</strong> with 10+ years domain expertise</li>
+                    <li><strong>Service businesses:</strong> trades, professional services, agencies</li>
+                    <li><strong>Teams of 2-15</strong> drowning in operational work</li>
+                    <li>People who want <span class="highlight">independence, not another vendor relationship</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: Content - What We Build -->
+    <div class="slide-container">
+        <div class="slide-label">Slide 6 — Content</div>
+        <div class="slide slide-content">
+            <div class="header">
+                <h3>What We Build Together</h3>
+                <div class="mini-logo">robot friends <span class="emoticon">:)</span></div>
+            </div>
+            <div class="body">
+                <ul>
+                    <li><strong>Lead Capture Systems</strong> — Never miss an inquiry again</li>
+                    <li><strong>Automated Follow-Up</strong> — Nurture sequences that work 24/7</li>
+                    <li><strong>Operations Hub</strong> — Scheduling, invoicing, client management unified</li>
+                    <li><strong>Custom Workflows</strong> — Your specific chaos, systematized</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: Content - How It Works -->
+    <div class="slide-container">
+        <div class="slide-label">Slide 7 — Content</div>
+        <div class="slide slide-content">
+            <div class="header">
+                <h3>How It Works</h3>
+                <div class="mini-logo">robot friends <span class="emoticon">:)</span></div>
+            </div>
+            <div class="body">
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <div class="step-title">Strategy Call</div>
+                        <div class="step-desc">Map your current chaos together</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <div class="step-title">System Design</div>
+                        <div class="step-desc">Blueprint your automation roadmap</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <div class="step-title">Build & Launch</div>
+                        <div class="step-desc">You build it (we coach), you own it</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">04</div>
+                        <div class="step-title">Handoff</div>
+                        <div class="step-desc">Full ownership, ongoing support available</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: Quote -->
+    <div class="slide-container">
+        <div class="slide-label">Slide 8 — Quote</div>
+        <div class="slide slide-quote">
+            <span class="quote-mark">"</span>
+            <blockquote>
+                Less firefighting.<br>More freedom.
+            </blockquote>
+            <div class="attribution">— Robot Friends</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: Stats - Luna Lux -->
+    <div class="slide-container">
+        <div class="slide-label">Slide 9 — Stats</div>
+        <div class="slide slide-stats">
+            <div class="stats-title">Luna Lux Creative — Client Onboarding Automation</div>
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">hours saved monthly</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1-2</div>
+                    <div class="stat-label">hours freed per client</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">missed steps</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 10: Stats - ElementAI -->
+    <div class="slide-container">
+        <div class="slide-label">Slide 10 — Stats</div>
+        <div class="slide slide-stats">
+            <div class="stats-title">ElementAI — Concept to Deployed Product</div>
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-number large">2.5</div>
+                    <div class="stat-label">hours total</div>
+                    <div class="stat-sublabel">concept to deployed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Full</div>
+                    <div class="stat-label">web app</div>
+                    <div class="stat-sublabel">auth + database + animations</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Live</div>
+                    <div class="stat-label">deployed</div>
+                    <div class="stat-sublabel">production ready</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 11: Content - Why Robot Friends -->
+    <div class="slide-container">
+        <div class="slide-label">Slide 11 — Content</div>
+        <div class="slide slide-content">
+            <div class="header">
+                <h3>Why Robot Friends</h3>
+                <div class="mini-logo">robot friends <span class="emoticon">:)</span></div>
+            </div>
+            <div class="body">
+                <ul>
+                    <li><strong>We've been where you are</strong> — domain experts who learned to build</li>
+                    <li>We understand <strong>both business and technical</strong> sides</li>
+                    <li>We're incentivized by <strong>your independence</strong>, not your dependency</li>
+                    <li>Enterprise experience, startup energy</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 12: Content - Services -->
+    <div class="slide-container">
+        <div class="slide-label">Slide 12 — Content</div>
+        <div class="slide slide-content">
+            <div class="header">
+                <h3>Work With Us</h3>
+                <div class="mini-logo">robot friends <span class="emoticon">:)</span></div>
+            </div>
+            <div class="body">
+                <div class="four-columns">
+                    <div class="service-card">
+                        <h4>Workshop</h4>
+                        <div class="price">$1,500 - $3,500</div>
+                        <p>Half/full day hands-on AI session. Leave with 3 opportunities identified and 1 quick win built.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Guided Build</h4>
+                        <div class="price">$8,000 - $25,000</div>
+                        <p>6-8 weeks of coaching. Build your first production system with us. Weekly calls + async support.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Advisory</h4>
+                        <div class="price">$2,000 - $5,000/mo</div>
+                        <p>Ongoing coaching retainer. Monthly strategy + async access + architecture reviews.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Team Program</h4>
+                        <div class="price">$25,000 - $75,000</div>
+                        <p>3-6 month transformation for 5-15 people. Custom curriculum + multiple builds.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 13: Closing -->
+    <div class="slide-container">
+        <div class="slide-label">Slide 13 — Closing</div>
+        <div class="slide slide-closing">
+            <h2>Let's build together <span class="emoticon">:)</span></h2>
+            <div class="cta-text">Book a free strategy call. Leave with a roadmap.</div>
+            <div class="website">robotfriends.com</div>
+        </div>
+    </div>
+
+</body>
+</html>
